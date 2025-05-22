@@ -1,0 +1,77 @@
+{ "height":5,
+ "layers":[
+        {
+         "data":[481, 481, 481, 481, 481, 481, 483, 483, 483, 481, 481, 483, 483, 483, 481, 481, 483, 483, 483, 481, 481, 481, 481, 481, 481],
+         "height":5,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":0,
+         "name":"Object Layer 1",
+         "objects":[
+                {
+                 "gid":1674,
+                 "height":40,
+                 "id":49,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":20,
+                 "x":20,
+                 "y":40
+                }, 
+                {
+                 "gid":1674,
+                 "height":40,
+                 "id":50,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":20,
+                 "x":60,
+                 "y":40
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":0,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "data":[2017, 2017, 0, 2017, 2017, 2017, 2020, 2020, 2020, 2017, 0, 2020, 2020, 2020, 0, 2017, 2020, 2020, 2020, 2017, 2017, 2017, 0, 2017, 2017],
+         "height":5,
+         "name":"Tile Layer 2",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":5,
+         "x":0,
+         "y":0
+        }],
+ "nextobjectid":51,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tileheight":20,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"..\/MapTileset.tsx"
+        }, 
+        {
+         "firstgid":3201,
+         "source":"..\/Tileset.tsx"
+        }],
+ "tilewidth":20,
+ "version":1,
+ "width":5
+}
