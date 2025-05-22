@@ -1,0 +1,238 @@
+<!doctype html> 
+<html lang="en"> 
+	<head> 
+		<style type="text/css">
+        	body {margin: 0;}
+			p {font-family: 'silkscreennormal'; src: url('assets/font/silkscreennormal.ttf'); format("truetype");}
+    	</style>
+		
+		<link rel="stylesheet" href="./assets/fonts/stylesheet.css" type="text/css" charset="utf-8" />
+		
+	
+		<meta charset="UTF-8" />
+		<title>Rogue Fable III</title>
+		
+	
+	</head>
+	<body style=background-color:#222222>
+		<div align='center' id="gameDiv"> </div>
+		
+		<!--
+		<script src="node_modules/nw-dev/lib/dev.js"></script>
+		-->
+		
+		<!-- Constants: -->
+		<script src='./constants/constants.js'></script>
+		<script src='./constants/constants-player.js'></script>
+		<script src='./constants/constants-npc.js'></script>
+		<script src='./constants/constants-frames.js'></script>
+		
+		
+		<!-- Main: -->
+		<script src='./phaser.js'></script>
+		<script src='./lz-string.min.js'></script>
+		<script src='./loader.js'></script>
+		<script src='./game.js'></script>
+		<script src='./new-game.js'></script>
+		<script src='./generator/dungeon-generator.js'></script>
+		<script src='./game-loop.js'></script>
+		<script src='./help.js'></script>
+		<script src='./metric.js'></script>
+		<script src='./message-queue.js'></script>
+		
+		<!-- Stats and Achievements -->
+		<script src='./game-record.js'></script>
+		<script src='./stats.js'></script>
+		<script src='./global-data.js'></script>
+		<script src='./steam-api.js'></script>
+		<script src='./achievements.js'></script>
+		
+		<!-- Debug: -->
+		<script src='./debug/debug-properties.js'></script>
+		<script src='./debug/debug-properties-iryna.js'></script>
+		<script src='./debug/debug-properties-colten.js'></script>
+		<script src='./debug/debug.js'></script>
+		<script src='./debug/debug-level-view-mode.js'></script>
+		<script src='./debug/debug-vault-converter.js'></script>
+		
+		<!-- Utility: -->
+		<script src='./utility/utility.js'></script>
+		<script src='./utility/util-create.js'></script>
+		<script src='./utility/util-vector.js'></script>
+		<script src='./utility/util-rand.js'></script>
+		<script src='./utility/util-array.js'></script>
+		<script src='./utility/util-io.js'></script>
+		<script src='./utility/util-box.js'></script>
+		
+		<!-- Main Menu: -->
+		<script src='./menu/menu-base.js'></script>
+		<script src='./menu/menu-class.js'></script>
+		<script src='./menu/menu-race.js'></script>
+		<script src='./menu/menu-main.js'></script>
+		<script src='./menu/menu-records.js'></script>
+		<script src='./menu/menu-new-records.js'></script>
+		<script src='./menu/menu-records-v2.js'></script>
+		<script src='./menu/menu-stat-tables.js'></script>
+		<script src='./menu/menu-new-game.js'></script>
+		<script src='./menu/menu-seed-game.js'></script>
+
+		<!-- Level: -->		
+		<script src='./level/tile-type.js'></script>
+		<script src='./level/tile-map.js'></script>
+		<script src='./level/pathfinding.js'></script>
+		<script src='./level/tile-map-display.js'></script>
+		<script src='./level/level.js'></script>
+		<script src='./level/zone-type.js'></script>
+		<script src='./level/spawn-tables.js'></script>
+		<script src='./level/frame-selector.js'></script>
+		<script src='./level/level-generate.js'></script>
+		<script src='./level/level-controller.js'></script>
+		<script src='./level/level-verification.js'></script>
+		
+		<!-- Vaults: -->
+		<script src='./level-generation/vault-type.js'></script>
+		<script src='./level-generation/vault-type-loader.js'></script>
+		<script src='./level-generation/level-io.js'></script>
+		
+		<!-- Generators: -->
+		<script src='./generator/generator-base.js'></script>
+		<script src='./generator/generator-sewer-roads.js'></script>
+		<script src='./generator/generator-sewer-template.js'></script>
+		<script src='./generator/generate-global-stuff.js'></script>
+		
+		<!-- New Level Generator Utils: -->
+		<script src='./level-generation/area.js'></script>
+		<script src='./level-generation/connection-map.js'></script>
+		<script src='./level-generation/level-generator-utils.js'></script>
+		<script src='./level-generation/monster-spawner.js'></script>
+		
+		<!-- New Area Generators: -->
+		<script src='./level-generation/area-generators/area-generator-base.js'></script>
+		<script src='./level-generation/area-generators/area-generator-vault.js'></script>
+		<script src='./level-generation/area-generators/area-generator-square.js'></script>
+		<script src='./level-generation/area-generators/area-generator-cave.js'></script>
+		<script src='./level-generation/area-generators/area-generator-long.js'></script>
+		<script src='./level-generation/area-generators/area-generator-circle.js'></script>
+		<script src='./level-generation/area-generators/area-generator-cross.js'></script>
+		
+		<!-- New Level Generators: -->
+		<script src='./level-generation/level-generators/level-generator-base.js'></script>
+		<script src='./level-generation/level-generators/level-generator-room-grid.js'></script>
+		<script src='./level-generation/level-generators/level-generator-bsp.js'></script>
+		<script src='./level-generation/level-generators/level-generator-cycles.js'></script>
+		<script src='./level-generation/level-generators/level-generator-major-vault.js'></script>
+		<script src='./level-generation/level-generators/level-generator-major-crypt.js'></script>
+		<script src='./level-generation/level-generators/level-generator-cave.js'></script>
+		<script src='./level-generation/level-generators/level-generator-cave-rooms.js'></script>
+        <script src='./level-generation/level-generators/level-generator-tunnels.js'></script>
+		<script src='./level-generation/level-generators/level-generator-liquid-tunnels.js'></script>
+		<script src='./level-generation/level-generators/level-generator-arcane.js'></script>
+		<script src='./level-generation/level-generators/level-generator-crypt.js'></script>
+		<script src='./level-generation/level-generators/level-generator-ring.js'></script>
+		<script src='./level-generation/level-generators/level-generator-three-tiles.js'></script>
+		<script src='./level-generation/level-generators/level-generator-template.js'></script>
+		<script src='./level-generation/level-generators/level-generator-yendor-center.js'></script>
+		<script src='./level-generation/level-generators/level-generator-static.js'></script>
+		<script src='./level-generation/level-generators/level-generator-insert-vaults.js'></script>
+		<script src='./level-generation/level-generators/level-generator-conveyor-belt-rooms.js'></script>
+		<script src='./level-generation/level-generators/level-generator-boss-portals.js'></script>
+		<script src='./level-generation/level-generators/level-generator-test-area.js'></script>
+		<script src='./level-generation/level-generators/level-generator-test.js'></script>
+		
+		<!-- Characters: -->
+		<script src='./character/character.js'></script>
+		<script src='./character/character-ui.js'></script>
+		<script src='./character/npc-type.js'></script>
+		<script src='./character/npc.js'></script>
+		<script src='./character/npc-controller.js'></script>
+		<script src='./character/player.js'></script>
+		<script src='./character/player-controller.js'></script>
+		<script src='./character/player-targeting.js'></script>
+		<script src='./character/player-input.js'></script>
+		<script src='./character/player-class.js'></script>
+		<script src='./character/player-race.js'></script>
+		<script src='./character/player-talents.js'></script>
+		<script src='./character/unique-npc.js'></script>
+		
+		<!-- Character Components: -->
+		<script src='./character/character-event-queue.js'></script>
+		<script src='./character/character-stats.js'></script>
+		<script src='./character/character-body.js'></script>
+		<script src='./character/character-inventory.js'></script>
+		<script src='./ability/status-effect.js'></script>
+		
+		<!-- Abilities: -->
+		<script src='./ability/ability.js'></script>
+		<script src='./ability/ability-type-player.js'></script>
+		<script src='./ability/ability-type-npc.js'></script>
+		<script src='./ability/ability-type-item.js'></script>
+		<script src='./ability/ability-helpers.js'></script>
+		<script src='./ability/talent-type.js'></script>
+		<script src='./ability/status-effect-type.js'></script>
+		<script src='./ability/religion.js'></script>
+		
+		<!-- Entities -->
+		<script src='./entity/projectile-type.js'></script>
+		<script src='./entity/projectile.js'></script>
+		<script src='./entity/particle.js'></script>
+		<script src='./entity/effect.js'></script>
+		<script src='./entity/cloud-type.js'></script>
+		<script src='./entity/cloud.js'></script>
+		<script src='./entity/object-type.js'></script>
+		<script src='./entity/object-funcs.js'></script>
+		<script src='./entity/object.js'></script>
+		<script src='./entity/lighting.js'></script>
+
+		<!-- Item: -->
+		<script src='./item/item-effects.js'></script>
+		<script src='./item/weapon-effects.js'></script>
+		<script src='./item/item-type.js'></script>
+		<script src='./item/item.js'></script>
+		<script src='./item/floor-item.js'></script>
+		<script src='./item/item-slot.js'></script>
+		<script src='./item/item-slot-list.js'></script>
+		<script src='./item/item-generator.js'></script>
+		<script src='./item/rand-art.js'></script>
+		<script src='./item/merchant.js'></script>
+		<script src='./item/tome-generator.js'></script>
+		<script src='./item/crystal-chest-generator.js'></script>
+		
+		<!-- Interface Components: -->
+		<script src='./ui/ui-text.js'></script>
+		<script src='./ui/ui-button.js'></script>
+		<script src='./ui/ui-item-slot.js'></script>
+		<script src='./ui/ui-item-slot-list.js'></script>
+		<script src='./ui/ui-text-button-list.js'></script>
+		<script src='./ui/ui-bar.js'></script>
+		<script src='./ui/ui-text-button.js'></script>
+		<script src='./ui/ui-menu-base.js'></script>
+		<script src='./ui/ui-item-menu.js'></script>
+		<script src='./ui/ui-text-box.js'></script>
+		<script src='./ui/ui-response-button.js'></script>
+		<script src='./ui/ui-target-sprites.js'></script>
+		<script src='./ui/ui-pop-up-text.js'></script>
+		
+		<!-- Interface: -->
+		<script src='./ui/ui-state-manager.js'></script>
+		<script src='./ui/ui-hud.js'></script>
+		<script src='./ui/ui-text-menus.js'></script>
+		<script src='./ui/ui-map.js'></script>
+		<script src='./ui/ui-character-menu.js'></script>
+		<script src='./ui/ui-stat-panel.js'></script>
+		<script src='./ui/ui-talent-panel.js'></script>
+		<script src='./ui/ui-options-menu.js'></script>
+		<script src='./ui/ui-shop-menu.js'></script>
+		<script src='./ui/ui-dialog-menu.js'></script>
+		<script src='./ui/ui-ability-bar.js'></script>
+		<script src='./ui/ui-hud-sprites.js'></script>
+		<script src='./ui/ui-enchantment-menu.js'></script>
+		<script src='./ui/ui-acquirement-menu.js'></script>
+		<script src='./ui/ui-transferance-menu.js'></script>
+		<script src='./ui/ui-library-menu.js'></script>
+		<script src='./ui/ui-game-menu.js'></script>
+		<script src='./ui/ui-use-menu.js'></script>
+		<script src='./ui/ui-wield-menu.js'></script>
+		<script src='./ui/ui-controls-menu.js'></script>
+		<script src='./ui/ui-goto-menu.js'></script>
+	</body>
+</html>
